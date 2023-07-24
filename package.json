@@ -1,6 +1,7 @@
 {
   "scripts": {
-    "start": "nodemon generateServer.js --ignore ./json/"
+    "dev": "nodemon generateServer.js --ignore ./json/",
+    "start": "NODE_ENV='production' node generateServer.js "
   },
   "dependencies": {
     "another-random-package": "^1.0.2",

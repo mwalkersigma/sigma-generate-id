@@ -102,6 +102,15 @@ fastify.post('/ids/serial', async function (request, reply) {
         await checkInGeneratedIDS();
     }
 })
+const options = {
+    port: 3002,
+    host: 'localhost',
+}
+console.log(process.env.NODE_ENV);
+if(process.env.NODE_ENV === "production"){
+    console.log("Running in production mode");
+    options.host = "10.100.100.33";
+}
 fastify.listen({ port: 3002 }, function (err, address) {
     if (err) {
         fastify.log.error(err)
