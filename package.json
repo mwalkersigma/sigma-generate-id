@@ -1,0 +1,9 @@
+{
+  "scripts": {
+    "start": "nodemon generateServer.js --ignore ./json/"
+  },
+  "dependencies": {
+    "another-random-package": "^1.0.2",
+    "fastify": "^4.20.0"
+  }
+}
