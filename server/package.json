@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "dev": "nodemon generateServer.js --ignore ./json/",
+    "dev": "nodemon generateServer.js --ignore server/json/",
     "start": "NODE_ENV='production' node generateServer.js "
   },
   "dependencies": {
