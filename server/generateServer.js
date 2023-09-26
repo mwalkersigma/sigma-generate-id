@@ -65,6 +65,21 @@ async function makeIDS (requestedAmount) {
     }
 }
 
+async function getLastGenerated () {
+    try {
+        let generatedIDS = await checkoutGeneratedIDS();
+        if(!Array.isArray(generatedIDS)) return new Error("Failed to get generatedIDS");
+        return generatedIDS[generatedIDS.length - 1];
+    } catch (e) {
+        console.log(e);
+    } finally {
+        await checkInGeneratedIDS();
+    }
+}
+fastify.get("/last", async function (request, reply) {
+    let last = await getLastGenerated();
+    reply.send({last: last})
+})
 fastify.get('/id', async function (request, reply) {
     let ids = await makeIDS(1)
     reply.send({ids: ids})
